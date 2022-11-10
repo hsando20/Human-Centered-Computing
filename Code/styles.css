@@ -82,9 +82,12 @@ main {
     display: flex;
     flex-direction: row;
     gap: 3rem;
+    flex-wrap: wrap;
+
 }
 #game-list > li {
     height: 450px;
+    width: 300px;
 }
 #game-list > li img {
     width: 100%;
