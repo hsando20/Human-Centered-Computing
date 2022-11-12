@@ -13,7 +13,7 @@ def home():
      
      
 @app.route('/games/<gameadress>')
-def minecraft(gameadress):
+def location(gameadress):
     return render_template('/Code/games/' + gameadress)
      # render a template
 
