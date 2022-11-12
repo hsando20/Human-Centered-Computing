@@ -7,6 +7,22 @@
     <title>Minecraft</title>
 </head>
 <body>
+
+
+    <form action = "/games/minecraft.html/star/" method = "post">
+        <label for="stars">Rate the game:</label>
+        <select id="stars" name="stars">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <input type="submit">
+      </form>
     
+        <p>{{ stars }}</p>
+
+
 </body>
 </html>
