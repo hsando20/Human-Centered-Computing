@@ -29,7 +29,7 @@ main {
     border-width: 0 2px 2px 2px;
     border-style: solid;
     border-color: white;
-    padding: 1rem;
+    padding: 2rem;
 }
 
 #app {
@@ -43,6 +43,10 @@ main {
     position: fixed;
     filter: blur(3px);
     z-index: -1000000;
+}
+
+#bg-img-container .overlay {
+    opacity: .5 !important;
 }
 
 /* Background styles  image */
@@ -81,36 +85,40 @@ main {
 #game-list {
     display: flex;
     flex-direction: row;
-    gap: 3rem;
     flex-wrap: wrap;
-
+    justify-content: space-between;
+    gap: 3rem;
 }
-#game-list > li {
+#game-list li {
     height: 450px;
     width: 300px;
+    position: relative;
+    border-radius: 40px;
+    overflow: hidden;
+    transform: scale(1, 1);
+    transition: all 100ms ease-in-out;
 }
-#game-list > li img {
+
+#game-list li:hover {
+    transform: scale(1.1, 1.1);
+}
+
+#game-list li img {
     width: 100%;
     height: 100%;
-    border-radius: 40px;  
-    padding: 10px;
-
-}
-.container:hover .overlay{
-    opacity: .5;
 }
 .overlay {
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    height: 100%;
     width: 100%;
-    border-radius: 40px;
-    opacity: 0;
-    transition: .5s ease;
+    height: 100%;
+    position: absolute;
     background-color: black;
-  }
+    opacity: .5;
+}
+
+.overlay:hover {
+    opacity: 0%;
+}
+
   .text {
     color: white;
     font-size: 20px;

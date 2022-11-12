@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minecraft</title>
+    <title>{{ name_star_tuple[1] }}</title>
 </head>
 <body>
 
 
     <!-- Example for webpage code -->
 
-    <form action = "/games/minecraft.html/star/" method = "post">
+    <form action = "/games/{{ name_star_tuple[1] }}/star/" method = "post">
         <label for="stars">Rate the game:</label>
         <select id="stars" name="stars">
           <option value="1">1</option>
@@ -23,7 +23,7 @@
         <input type="submit">
       </form>
     
-        <p>{{ stars }}</p>
+        <p>{{ name_star_tuple[0] }}</p>
 
 
 </body>
