@@ -1,3 +1,8 @@
+### Regular Templete to edit is spiderman.html ###
+
+
+
+
 How to run the server 
 
 1. Have python installed 
@@ -15,4 +20,3 @@ How to run the server
     python3 sever.py
 
 !!!!!!! Disclaimer this is not regular HTML !!!!!!!!!
-    Read Flask Documentation for syntax 
