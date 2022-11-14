@@ -20,3 +20,5 @@ How to run the server
     python3 sever.py
 
 !!!!!!! Disclaimer this is not regular HTML !!!!!!!!!
+  ---Read flask documentation for syntax if you working in backend ---
+  -- If the server dont run after any changes please dont commit into main and ask for help---
