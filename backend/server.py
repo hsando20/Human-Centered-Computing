@@ -45,10 +45,18 @@ def ranking(gameadress):
     return redirect("/games/"+gameadress.split('.')[0])
 
 
- ### Below code for testing stars code       
-@app.route('/paginaf' , methods = ['POST' , 'GET'])
-def prueba():
-    return render_template('/Code/games/gametemplate.html')      
+ ### This code is to be able to autofecth some html 
+ ### Spiderman.HTML has the template for regular html 
+ ### Everything else is empty 
+ ### if you want to run regular html in the server use the following address
+ ### address/noautofetch/gamename.html      
+@app.route('/noautofetch/<game>' , methods = ['POST' , 'GET'])
+def prueba(game):
+    server_utils.get_dame_database(game)
+    stars = server_utils.read_stars_csv(game.split('.')[0])
+    name_star_tuple = (stars, game.split('.')[0])
+    name_title_upper = (stars, game.split('.')[0].capitalize())
+    return render_template('/Code/games/'+game , name_star_tuple=name_star_tuple , name_title_upper = name_title_upper , get_game_data=server_utils.get_game_data, stars = stars)      
         
 @app.route('/paginaf/star/' , methods = ['POST' , 'GET'])
 def prueba2():
