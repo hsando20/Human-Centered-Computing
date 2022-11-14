@@ -1,4 +1,4 @@
-### Regular Templete to edit is spiderman.html ###
+### Regular Templete to edit is spiderman.html  located inside templete/games ###
 
 
 
