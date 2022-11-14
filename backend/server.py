@@ -42,6 +42,10 @@ def ranking(gameadress):
     server_utils.update_stars_csv(request.form['stars'], gameadress.split('.')[0])
     return redirect("/games/"+gameadress.split('.')[0])
         
+@app.route('/paginaf' , methods = ['POST' , 'GET'])
+def prueba():
+    #print(request.form['action1'])
+    return render_template('/Code/games/gametemplate.html')
 
 # start the server with the 'run()' method
 if __name__ == '__main__':

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/gameTempleteStyles.css">
+    <title></title>
+</head>
+<body>
+  <div id="bg-img-container"><div class="overlay"></div><img src="static/img/background.jpg" alt="cy"></div>
+
+  <div id="app">
+    <header>
+      <h2 id="logo">GB</h2>
+      <h1 id="name">Minecraft</h1>
+      <div id="searchbar">
+      </div>
+      <div class="tab first-tab"></div>
+      <div class="tab second-tab"></div>
+    </header>
+    <main>
+      <div id="cover">
+        <!-- editar para el post  method = "post" -->
+        <form action = "/paginaf" method = "post">
+          <div id="rating" >
+            <button class="star" value="1" id = "selection" name="selection">
+              <img src= "/static/img/rankingyellow.png" alt =" amarillo">
+            </button>
+            <button class="star" value="2">
+              <img src= "/static/img/rankingyellow.png" alt =" amarillo">
+            </button>
+            <button class="star" value="3">
+              <img src= "/static/img/rankingyellow.png" alt =" amarillo">
+            </button>
+            <button class="star" value="4">
+              <img src= "/static/img/rankingyellow.png" alt =" amarillo">
+            </button>
+            <button class="star" value="5">
+              <img src = "/static/img/rankingblack.png" alt ="negro">
+            </button>
+          </div>
+        </form>
+        <img src="/static/img/minecraft.jpeg"  alt="cy">
+      </div>
+      <section id="info">
+        <article class="green">
+          <h2>Description</h2>
+          <hr />
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime exercitationem consequuntur at animi natus laudantium aspernatur voluptas reprehenderit. Dolorum iste ad non, sit tempore nesciunt! Quis perferendis beatae natus amet.</p>
+        </article>
+        <article class="orange">
+          <span id="concated-header">
+            <h2>Platforms : </h2>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, dolore! Error, sunt quibusdam! Corporis maiores ullam rem minima esse laborum consectetur nisi quae eos quis, magnam perspiciatis, incidunt accusamus qui!</p>
+          </span>
+          <hr />
+          <h3>More Information</h3>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur soluta provident nisi, nam nihil cumque debitis enim ratione repellat quos rem suscipit voluptatem quas quo? Rerum amet labore quia nostrum.</p>
+        </article>
+      </section>
+      <!-- <form action = "/games/minecraft.html/star/" method = "post">
+        <label for="stars">Rate the game:</label>
+        <select id="stars" name="stars">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+        <input type="submit">
+      </form> -->
+    </main>
+    <button class="star yellowStar">
+      <img src= "/static/img/rankingyellow.png" alt =" amarillo">
+    </button>
+    <button class="star blackStar">
+      <img src = "/static/img/rankingblack.png" alt ="negro">
+    </button>
+  </div>
+    
+  
+</body>
+</html>
