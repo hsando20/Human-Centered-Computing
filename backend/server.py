@@ -24,9 +24,11 @@ def location(gameadress):
     server_utils.get_dame_database(gameadress)
     stars = server_utils.read_stars_csv(gameadress.split('.')[0])
     name_star_tuple = (stars, gameadress.split('.')[0])
+    
+    name_title_upper = (stars, gameadress.split('.')[0].capitalize())
     return render_template(
-        '/Code/games/minecraft.html',
-        name_star_tuple=name_star_tuple)
+        '/Code/games/gametemplate.html',
+        name_star_tuple=name_star_tuple , name_title_upper = name_title_upper , get_game_data=server_utils.get_game_data, stars = stars)
      # render a template
 
 
@@ -38,14 +40,20 @@ returns the rendered html file for that game
 """
 @app.route('/games/<gameadress>/star/' , methods = ['POST', 'GET'])
 def ranking(gameadress):
-    print(request.form['stars'])
-    server_utils.update_stars_csv(request.form['stars'], gameadress.split('.')[0])
+    print(request.form['selection'])
+    server_utils.update_stars_csv(request.form['selection'], gameadress.split('.')[0])
     return redirect("/games/"+gameadress.split('.')[0])
-        
+
+
+ ### Below code for testing stars code       
 @app.route('/paginaf' , methods = ['POST' , 'GET'])
 def prueba():
-    #print(request.form['action1'])
-    return render_template('/Code/games/gametemplate.html')
+    return render_template('/Code/games/gametemplate.html')      
+        
+@app.route('/paginaf/star/' , methods = ['POST' , 'GET'])
+def prueba2():
+    print(request.form['selection'])
+    return redirect('/paginaf')
 
 # start the server with the 'run()' method
 if __name__ == '__main__':
