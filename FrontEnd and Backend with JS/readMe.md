@@ -12,5 +12,5 @@
 ## How to add games and setup the page
 
 - Steps: 
-  -WIP
+  - WIP
   
