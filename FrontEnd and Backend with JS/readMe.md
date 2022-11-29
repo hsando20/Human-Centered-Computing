@@ -1,6 +1,6 @@
 # Gamebase 
 
-#How to run website
+# How to run website
 - Requires that the Frontend and Backend are running at same time for correct funcitonality
 
 ## Notes
