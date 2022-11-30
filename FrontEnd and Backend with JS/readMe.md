@@ -14,3 +14,6 @@
 - Steps: 
   - WIP
   
+## Ports
+  -FrontEnd Port: 3000
+  -BackEnd Port: 5000
