@@ -11,7 +11,22 @@ API_URL=http://localhost:5000/api/v1/
 
 ## RUN THE FOLLOWING COMMANDS INSIDE THIS FOLDER 
 
+ 
+Install the dependencies:
 
+
+ 
+```
+npm i
+```
+
+and then run:
+
+```
+npm run start
+```
+
+to start the server.
 
 
 # React
