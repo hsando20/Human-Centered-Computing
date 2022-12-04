@@ -14,6 +14,8 @@ Requires NodeJS v19 and npm v9
 
 4. Enjoy the Website 
 
+Local Address: localhost:3000/
+
 ## Notes
 
 - This version of the gamebase is implemented with NodeJS, MongoDB, Mongoose, React, Express 
