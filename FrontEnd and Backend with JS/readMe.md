@@ -6,7 +6,7 @@ Requires NodeJS v19 and npm v9
 
 # How to run website
 
-1. Open Folders frontend and backend, an follow the steps in the readme.md fil.
+1. Open Folders frontend and backend, an follow the steps in the readme.md file.
 
 2. After completing the steps in the readme.md you need two terminas to run the webpage.
 
