@@ -6,7 +6,7 @@ This is a basic boilerplate project to start creating APIs with Node.js and Expr
 
 ## .ENV FILE STORES THE SETTINGS FOR MONGODB DATABASE 
 
-The file has the have the follwoing
+The .env file has the have the follwoing:
 
 //Connecting to database
 
