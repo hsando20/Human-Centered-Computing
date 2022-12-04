@@ -33,10 +33,14 @@ CORS_WHITELIST=http://localhost:3000/,http://localhost:5000/
  
 ##  ASK IN DISCORD FOR MONGODB CREDENTIALS PLZ
 
-# Getting started
+# HOW TO RUN IT 
 
+## Run the following commands inside this folder:
+ 
 Install the dependencies:
 
+
+ 
 ```
 npm i
 ```
