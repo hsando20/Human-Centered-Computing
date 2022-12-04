@@ -1,10 +1,14 @@
-import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+//home.js
+//Code for the main page
+
+//Imports
+import { useState, useEffect } from "react"; // useSate creates a reactive state  , useEffect life cycle of the component
+import { Link } from "react-router-dom"; // Creates a link for the same address
 import env from "react-dotenv";
 import axios from "axios";
-
 import "./home.css";
 
+//It's the functional component for the main page
 function Home() {
   const [imgStyle, setImgStyle] = useState("");
   const [games, setGames] = useState(null);
@@ -25,6 +29,8 @@ function Home() {
       {games ? (
         games.map((game) => (
           <Link to={`/${game.url}`} key={game.name}>
+            {" "}
+            {/*Creates all the links for all the game pages in the database  */}
             <li>
               <div className="overlay"></div>
               <img

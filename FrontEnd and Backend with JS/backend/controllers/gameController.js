@@ -1,3 +1,7 @@
+//gameController.js
+//Handles the information between the database and the webpage
+//regarding game
+
 const fs = require("fs");
 const Game = require("../models/gameModel");
 
@@ -31,8 +35,9 @@ exports.createAllGames = async (req, res) => {
         img,
         url,
         ytUrl: "",
+        releaseYear: "",
         categories: [null],
-        platforms: [null],
+        platforms: ["playstation", "nintendo", "xbox", "computer"],
         wikiUrl: "",
         rating: [
           {
@@ -74,19 +79,27 @@ exports.createGame = (req, res) => {
 };
 
 exports.updateGame = async (req, res) => {
-  console.log(req.body.rating);
-  if (!req.body.rating) return;
+  let game;
+  switch (req.body.type) {
+    case "rating":
+      if (!req.body.rating) return;
 
-  let user = null;
-  if (req.body.user) user = req.body.user;
+      let user = null;
+      if (req.body.user) user = req.body.user;
 
-  const prevVersion = await Game.findOne({ url: req.params.id });
-  console.log(prevVersion);
-  const game = await Game.findByIdAndUpdate(prevVersion._id, {
-    rating: prevVersion.rating.concat([
-      { number: Number(req.body.rating), user },
-    ]),
-  });
+      const prevVersion = await Game.findOne({ url: req.params.id });
+      console.log(prevVersion);
+      game = await Game.findByIdAndUpdate(prevVersion._id, {
+        rating: prevVersion.rating.concat([
+          { number: Number(req.body.rating), user },
+        ]),
+      });
+      break;
+    case "category":
+      break;
+    default:
+      return;
+  }
 
   res.status(202).json({
     status: "success",

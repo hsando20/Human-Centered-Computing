@@ -1,4 +1,6 @@
-/* General Styles */
+/* global.css */
+/* Global style sheet for all the pages*/
+
 * {
   margin: 0;
   padding: 0;
@@ -47,7 +49,7 @@ main {
   width: 100%;
   min-height: 100vh;
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   border-width: 0 2px 2px 2px;
   border-style: solid;
   border-color: white;
@@ -56,6 +58,17 @@ main {
 
 hr {
   color: white;
+}
+
+a {
+  font-family: sans-serif;
+  color: white;
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+a:hover {
+  font-size: 1.2rem;
 }
 
 /* background style  */

@@ -1,7 +1,9 @@
+//usersRoutes.js
+//Assigns the controllers to each route
+
 const { Router } = require("express");
 
 const {
-  getAllUsers,
   createAllUsers,
   getUser,
   createUser,
@@ -11,7 +13,7 @@ const {
 
 const router = Router();
 
-router.route("/").get(getAllUsers).post(createAllUsers);
+router.route("/").post(createAllUsers);
 router
   .route("/:id")
   .get(getUser)

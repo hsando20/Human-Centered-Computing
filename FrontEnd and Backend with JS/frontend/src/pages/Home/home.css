@@ -1,8 +1,11 @@
+/* home.css
+Style sheet for home page  */
+
 #game-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: space-between;
+  justify-content: space-around;
   gap: 3rem;
 }
 #game-list li {

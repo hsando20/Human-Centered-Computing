@@ -1,3 +1,6 @@
+//CategoryModel.js
+//Defines the Scheme for game in MongoDB
+
 const { Schema, model } = require("mongoose");
 //Database Scheme
 const gameSchema = new Schema({
@@ -16,11 +19,15 @@ const gameSchema = new Schema({
     required: true,
     unique: true,
   },
-
   ytUrl: String,
   wikiUrl: String,
+  releaseYear: String,
   categories: [Schema.Types.ObjectId],
-  platforms: [Schema.Types.ObjectId],
+  platforms: {
+    type: [String],
+    enum: ["playstation", "nintendo", "xbox", "computer"],
+    required: true,
+  },
   rating: [
     {
       _id: false,
@@ -38,6 +45,11 @@ const gameSchema = new Schema({
     type: String,
     required: true,
   },
+});
+
+gameSchema.pre("save", function (next) {
+  this.platforms = [...new Set(this.platforms)];
+  return next();
 });
 
 const Game = model("Game", gameSchema);

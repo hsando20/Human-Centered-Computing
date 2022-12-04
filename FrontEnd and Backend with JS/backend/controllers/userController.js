@@ -1,3 +1,7 @@
+//userController.js
+//Handles the information between the database and the webpage
+//regarding user
+
 exports.getAllUsers = (req, res) => {
   res.status(200).json({
     status: "success",

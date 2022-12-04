@@ -1,6 +1,9 @@
+// Game.js
+// The game website template
+
 //Imports
 import { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "react-router-dom"; // obtains dynamic params from request
 import { Rating } from "@mui/material";
 import axios from "axios";
 import env from "react-dotenv";
@@ -12,10 +15,11 @@ import "./game.css";
 //Here is the logic for what it goes to the screen
 // and what is presentend in game page
 function Game() {
-  const params = useParams();
-  const [game, setGame] = useState();
+  const params = useParams(); // Gets the data from the url
+  const [game, setGame] = useState(null); // Create a state for game
   const [starValue, setStarValue] = useState(3); //  The "stars" is the value/amount of stars
 
+  //Creates an average for the stars of the game from all the ratings given
   const starAverage = (ratings) => {
     return (
       ratings.reduce((total, current) => (total += current.number), 0) /
@@ -23,46 +27,70 @@ function Game() {
     );
   };
 
+  //Handles the life cycle of the components
   useEffect(() => {
     (async function () {
-      const response = await axios.get(`${env.API_URL}games/${params.game}`);
-      const data = response.data.data;
-      setGame(data);
-      setStarValue(starAverage(data.rating));
+      const response = await axios.get(`${env.API_URL}games/${params.game}`); // sends a request to the api
+      const data = response.data.data; // extracts the data from the request
+      setGame(data); // saves the data in the game state
+      setStarValue(starAverage(data.rating)); // saves the stars average
     })();
-  }, []);
+  }, [params.game]);
 
+  //Saves the star value given by the user
+  //and get stored in the database
   const saveStars = async (value) => {
     setStarValue(value);
     const dataToUpdate = {
+      type: "rating",
       rating: value,
     };
 
     await axios.patch(`${env.API_URL}games/${game.url}`, dataToUpdate);
   };
 
+  //If statement when you select the game
   if (game)
     return (
       <>
-        <div id="cover">
-          <img src={`${env.API_URL}img/games/${game.img}`} alt="cy" />
-          <div id="rating">
+        <section id="frame">
+          <div id="cover">
+            <img src={`${env.API_URL}img/games/${game.img}`} alt="cy" />
+          </div>
+          <p id="release-year">Released on {game.releaseYear}</p>
+          <div className="data-box">
             <Rating
+              sx={{
+                "& .MuiRating-iconEmpty": {
+                  color: "rgba(255,255,255,.5)",
+                },
+              }}
               name="simple-controlled"
               value={starValue}
               onChange={(event, newValue) => saveStars(newValue)}
               precision={0.5}
               size="large"
             />
-            // platform games //feetched from the database
           </div>
-        </div>
+          {game.platforms.length > 0 && (
+            <ul className="data-box">
+              {game.platforms.map((platform, i) => (
+                <li class="platforms" key={i}>
+                  <img
+                    src={`${env.API_URL}img/platforms/${platform}.png`}
+                    alt="xy"
+                    title={platform}
+                  />
+                </li>
+              ))}
+            </ul>
+          )}
+        </section>
         <section id="info">
-          <article>
+          <article className="video-player">
             <iframe
-              style={{ width: "20rem", height: "15rem" }}
-              src="https://www.youtube.com/embed/JkzgJjWfvBA"
-              //SRC UN API QUE FEETCHE DE LA BASE DE DATOS EL ENLACE DEL VIDEO QUE ESTE GUARDADO.
+              className="embed"
+              src={game.ytUrl}
               title="YouTube video player"
               frameBorder="0"
               allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
@@ -74,29 +102,19 @@ function Game() {
             <h2>Description</h2>
             <hr />
             <p>
-              Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime
-              exercitationem consequuntur at animi natus laudantium aspernatur
-              voluptas reprehenderit. Dolorum iste ad non, sit tempore nesciunt!
-              Quis perferendis beatae natus amet.
+              {/* Feetchin description from database */}
+              {game.description}
             </p>
           </article>
           <article className="orange">
-            <span id="concated-header">
-              <h2>Platforms : </h2>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
-                dolore! Error, sunt quibusdam! Corporis maiores ullam rem minima
-                esse laborum consectetur nisi quae eos quis, magnam
-                perspiciatis, incidunt accusamus qui!
-              </p>
-            </span>
-            <hr />
+            <span id="concated-header">{/* Deleted data for platforms */}</span>
             <h3>More Information</h3>
+            <hr />
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur
-              soluta provident nisi, nam nihil cumque debitis enim ratione
-              repellat quos rem suscipit voluptatem quas quo? Rerum amet labore
-              quia nostrum.
+              For more information click{" "}
+              <a href={game.wikiUrl} target="_blank" rel="noreferrer">
+                here
+              </a>
             </p>
           </article>
         </section>

@@ -1,3 +1,6 @@
+//gameRoutes.js
+//Assigns the controllers to each route
+
 const { Router } = require("express");
 
 const {
