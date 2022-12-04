@@ -4,7 +4,7 @@ This is a basic boilerplate project to start creating APIs with Node.js and Expr
 
 ## Create a .ENV file IF YOU DONT CREATE IT IT WOULD NOT RUN 
 
-##.ENV FILE STORES THE SETTINGS FOR MONGODB DATABASE 
+## .ENV FILE STORES THE SETTINGS FOR MONGODB DATABASE 
 
 The file has the have the follwoing
 
